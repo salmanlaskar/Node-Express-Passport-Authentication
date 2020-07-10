@@ -29,4 +29,21 @@ var passport          =require('passport'),
     });
 
 
+
+
+    //===============================
+    //Login routes
+
+    router.get('/login',function(req,res){
+        res.render('login');
+    });
+
+    router.post("/login",passport.authenticate("local",
+    {
+        successRedirect : '/login',
+        failureRedirect : '/signup'
+    }),function(req,res){                 
+    });
+
+
   module.exports =router;
