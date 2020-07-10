@@ -4,6 +4,7 @@ var exp               =require('express'),
     passport          =require('passport'),
     LocalStratergy    =require('passport-local'),
     indexRoutes       =require('./routes/index'),
+    homeRoutes       =require('./routes/home'),
     User              =require('./models/user');
   mongoose.connect('mongodb://localhost:27017/Auth',{ useNewUrlParser: true },function(err){
       if(err)
@@ -47,6 +48,7 @@ app.use(function(req,res,next){
 
 //routes
 app.use(indexRoutes);
+app.use(homeRoutes);
 
 //=======================================
 app.listen(12000,function()
